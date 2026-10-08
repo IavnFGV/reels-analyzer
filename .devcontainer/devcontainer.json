@@ -1,0 +1,37 @@
+{
+  "name": "reels-analyzer",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  "runArgs": [
+    "--env-file",
+    "${localWorkspaceFolder}/.devcontainer/ollama.env"
+  ],
+  "mounts": [
+    "source=reels-analyzer-pip-cache,target=/home/vscode/.cache/pip,type=volume",
+    "source=${localEnv:HOME}/.ollama,target=/home/vscode/.ollama,type=bind",
+    "source=${localEnv:HOME}/.codex,target=/home/vscode/.codex,type=bind"
+  ],
+  "workspaceFolder": "/workspaces/reels-analyzer",
+  "remoteEnv": {
+    "PIP_CACHE_DIR": "/home/vscode/.cache/pip",
+    "REELS_ANALYZER_OLLAMA_MODEL_NOTE": "Change Ollama model in .devcontainer/ollama.env"
+  },
+  "postCreateCommand": "bash .devcontainer/fix-container-perms.sh && pip install -e . --no-deps",
+  "postStartCommand": "bash .devcontainer/fix-container-perms.sh && bash .devcontainer/start-ollama.sh",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python"
+      },
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "charliermarsh.ruff",
+        "openai.chatgpt",
+        "mechatroner.rainbow-csv"
+      ]
+    }
+  }
+}

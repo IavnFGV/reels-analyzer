@@ -1,0 +1,54 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# venv
+venv/
+.venv/
+*.egg-info/
+build/
+dist/
+
+# Local credentials (the tracked Ollama env contains only public defaults)
+.env
+.env.*
+!.env.example
+cookies.txt
+cookies*.txt
+*.cookies.txt
+
+# Local media and generated metadata
+*.mp4
+*.mov
+*.mkv
+*.webm
+*.avi
+*.m4v
+*.wav
+*.mp3
+*.m4a
+*.info.json
+*.log
+docs/devcontainer-context-mystery/*/payload/
+
+# OS
+.DS_Store
+
+# VS Code
+.vscode/
+
+# outputs
+output/
+
+# models cache (если вдруг захочешь игнорить)
+# ~/.cache/
+
+data/videos/
+
+
+projects/
+Untitled-1

@@ -1,0 +1,9 @@
+{
+  "name": "context-mystery-broken",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  "initializeCommand": "bash .devcontainer/check-preflight.sh",
+  "postCreateCommand": "python -V"
+}
